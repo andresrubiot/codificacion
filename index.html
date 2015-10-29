@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="shortcut icon" href="images/favicon.jpg">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Codificacion</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
@@ -12,6 +13,7 @@
 		.border-nav-top
 		{
 			border-radius: 5px 5px 0px 0px !important;
+			margin-bottom: 0px !important;
 		}
 		.background
 		{
@@ -27,54 +29,79 @@
 
 	<div class="container">
 
-	  <!-- The justified navigation menu is meant for single line per list item.
-	       Multiple lines will require custom code not provided by Bootstrap. -->
-	  <div class="masthead">
-	    <h3 class="text-muted">Codificación</h3>
-	    <nav>
-	      <ul class="nav nav-justified border-nav-top">
-	        <li class="active"><a href="#">Inicio</a></li>
-	        <li><a href="#">NRZ</a></li>
-	        <li><a href="#">Manchester</a></li>
-	        <li><a href="#">NRZI</a></li>
-	      </ul>
-	    </nav>
-	  </div>
+		<nav class="navbar navbar-default border-nav-top">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#">Codificación</a>
+		    </div>
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		        <li class="active"><a href="#">Inicio <span class="sr-only">(current)</span></a></li>
+		        <li><a href="nrz.html">NRZ</a></li>
+		        <li><a href="#">Manchester</a></li>
+		        <li><a href="#">NRZI</a></li>
+		        <li><a href="#">4b/5b</a></li>
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
 
 	  <!-- Jumbotron -->
 	  <div class="jumbotron background">
 	    <img src="images/logo-ucc.png">
 	    <p class="lead">
-	    	Nombres de integrantes y datos de una portada etc
+	    	ELIANA LIZETH GOMEZ CASTELLON<br>
+	    	319575<br><br>
+	    	Presentado a:<br>
+	    	OSCAR CAMILO VALDERRAMA RIVEROS<br><br>
+	    	TELECOMUNICACIONES II
 	    </p>
 	  </div>
 
 	  <!-- Example row of columns -->
 	  <div class="row">
-	    <div class="col-lg-4">
+	    <div class="col-lg-3">
 	      <h2>NRZ</h2>
 	      <p>
 	      	En telecomunicaciones, se denomina NRZ porque el voltaje no vuelve a cero entre bits consecutivos de valor uno.
 	      </p>
-	      <p><a class="btn btn-primary" href="#" role="button">Ejecutar &raquo;</a></p>
+	      <p><a class="btn btn-primary" href="nrz.html" role="button">Ejecutar &raquo;</a></p>
 	    </div>
-	    <div class="col-lg-4">
+	    <div class="col-lg-3">
 	      <h2>Manchester</h2>
 	      <p>
 	      	La codificación Manchester, también denominada codificación bifase-L, es un método de codificación eléctrica de una señal binaria en el que en cada tiempo de bit hay una transición entre dos niveles de señal.
 	      </p>
 	      <p><a class="btn btn-primary" href="#" role="button">Ejecutar &raquo;</a></p>
 	   </div>
-	    <div class="col-lg-4">
+	    <div class="col-lg-3">
 	      <h2>NRZI</h2>
 	      <p class="alert alert-danger">NRZ PERO INVERTIDO :D</p>
+	      <p><a class="btn btn-primary" href="#" role="button">Ejecutar &raquo;</a></p>
+	    </div>
+	    <div class="col-lg-3">
+	      <h2>4b/5b</h2>
+	      <p class="alert alert-danger">Codificación...</p>
 	      <p><a class="btn btn-primary" href="#" role="button">Ejecutar &raquo;</a></p>
 	    </div>
 	  </div>
 
 	  <!-- Site footer -->
 	  <footer class="footer">
-	    <p>pie de página</p>
+	    <p>
+	    	ELIANA LIZETH GOMEZ CASTELLON
+	    	<br>
+	    	TELECOMUNICACIONES II
+	    </p>
 	  </footer>
 
 	</div> <!-- /container -->

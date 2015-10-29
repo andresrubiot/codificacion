@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="shortcut icon" href="images/favicon.jpg">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Codificacion</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link href="css/justified-nav.css" rel="stylesheet">
+
+	<style type="text/css">
+		.border-nav-top
+		{
+			border-radius: 5px 5px 0px 0px !important;
+			margin-bottom: 0px !important;
+		}
+		.background
+		{
+			background:#1A2D3F;
+			border:0px solid #1A2D3F;
+			border-radius: 0px 0px 5px 5px !important;
+			color: #FFF;
+		}
+	</style>
+
+</head>
+<body>
+
+	<div class="container">
+
+		<nav class="navbar navbar-default border-nav-top">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#">Codificación | NRZ</a>
+		    </div>
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		        <li class="active"><a href="#">Inicio <span class="sr-only">(current)</span></a></li>
+		        <li><a href="NRZ.html">NRZ</a></li>
+		        <li><a href="#">Manchester</a></li>
+		        <li><a href="#">NRZI</a></li>
+		        <li><a href="#">4b/5b</a></li>
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+
+	  <!-- Jumbotron -->
+	  <div class="jumbotron background">
+	    <p class="lead">
+	    	NRZ
+	    </p>
+	  </div>
+
+	  <!-- Example row of columns -->
+	  <div class="row">
+	    
+	    <div class="col-lg-12">
+	    	<form>
+		      <div class="input-group">
+					  <span class="input-group-addon" id="basic-addon1">(0 / 1)</span>
+					  <input type="text" id="patron" class="form-control" placeholder="Ingrese el dato Binario" aria-describedby="basic-addon1" onkeypress="return validarn(event)">
+					</div><br>
+	      	<p><a class="btn btn-primary" href="#" role="button" onclick="canvas();">Ejecutar &raquo;</a></p>
+	    	</form>
+	    </div>
+	    <div class="col-lg-12">
+	    	<canvas id="micanvas" width="1000" height="100">
+					Este texto se muestra para los navegadores no compatibles con canvas.
+					<br>
+					Por favor, utiliza Firefox, Chrome, Safari u Opera.
+				</canvas>
+	    </div>
+	    
+	  </div>
+
+	  <!-- Site footer -->
+	  <footer class="footer">
+	    <p>
+	    	ELIANA LIZETH GOMEZ CASTELLON
+	    	<br>
+	    	TELECOMUNICACIONES II
+	    </p>
+	  </footer>
+
+	</div> <!-- /container -->
+
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+
+<script>
+	function validarn(e) {
+		tecla = (document.all) ? e.keyCode : e.which;
+   	if (tecla==8) return true;
+		if (tecla==9) return true;
+		if (tecla==11) return true;
+    patron = /[01]/;
+    te = String.fromCharCode(tecla);
+    return patron.test(te);
+	}
+
+	function canvas(){
+		draw=document.getElementById('patron').value;
+		limite=document.getElementById('patron').value.length;
+		limite=limite+1;
+		//dibujo en canvas
+		//Recibimos el elemento canvas
+		var canvas = document.getElementById('micanvas');
+		//Accedo al contexto de '2d' de este canvas, necesario para dibujar
+		var contexto = canvas.getContext('2d');
+		//Dibujo en el contexto del canvas
+
+		//para el cero, solo ampliarle 50 al primer parametro
+		num=0;
+		inc=50;
+		for (var i = 0; i < limite; i++) {
+			contexto.fillRect(num, 0, 1, 80);//1
+			num=num+inc;
+		}
+
+		contexto.fillRect(0, 	60, 50, 5);//__
+		contexto.fillRect(50, 	60, 50, 5);//__
+		contexto.fillRect(98, 10, 5, 55);//|
+		contexto.fillRect(98, 10, 50, 5);//--
+		contexto.fillRect(148, 10, 5, 55);//|
+		contexto.fillRect(150, 	60, 50, 5);//__
+		contexto.fillRect(198, 10, 5, 55);//|
+		contexto.fillRect(200, 10, 50, 5);//--
+		contexto.fillRect(248, 10, 50, 5);//--
+		contexto.fillRect(298, 10, 50, 5);//--
+		contexto.fillRect(348, 10, 50, 5);//--
+		contexto.fillRect(398, 10, 5, 55);//|
+		contexto.fillRect(400, 	60, 50, 5);//__
+		contexto.fillRect(448, 10, 5, 55);//|
+		contexto.fillRect(450, 10, 50, 5);//--
+		contexto.fillRect(498, 10, 5, 55);//|
+		contexto.fillRect(500, 	60, 50, 5);//__
+		contexto.fillRect(550, 	60, 50, 5);//__
+		contexto.fillRect(600, 	60, 50, 5);//__
+		contexto.fillRect(650, 	60, 50, 5);//__
+		contexto.fillRect(698, 10, 5, 55);//|
+		contexto.fillRect(700, 10, 50, 5);//--
+		contexto.fillRect(748, 10, 5, 55);//|
+		contexto.fillRect(750, 	60, 50, 5);//__
+
+	}
+
+</script>
+
+</body>
+</html>
