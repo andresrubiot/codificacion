@@ -57,7 +57,7 @@
 
 	  <!-- Jumbotron -->
 	  <div class="jumbotron background">
-	    <p class="lead">
+	    <p class="lead" style="font-size:30px;">
 	    	NRZ
 	    </p>
 	  </div>
@@ -111,8 +111,9 @@
 
 	function canvas(){
 		draw=document.getElementById('patron').value;
-		limite=document.getElementById('patron').value.length;
-		limite=limite+1;
+		limite2=document.getElementById('patron').value.length;
+		limite=limite2+1;
+		var binario = draw.split("");
 		//dibujo en canvas
 		//Recibimos el elemento canvas
 		var canvas = document.getElementById('micanvas');
@@ -124,34 +125,52 @@
 		num=0;
 		inc=50;
 		for (var i = 0; i < limite; i++) {
-			contexto.fillRect(num, 0, 1, 80);//1
+			contexto.fillRect(num, 0, 1, 80);//|||
 			num=num+inc;
 		}
 
-		contexto.fillRect(0, 	60, 50, 5);//__
-		contexto.fillRect(50, 	60, 50, 5);//__
-		contexto.fillRect(98, 10, 5, 55);//|
-		contexto.fillRect(98, 10, 50, 5);//--
-		contexto.fillRect(148, 10, 5, 55);//|
-		contexto.fillRect(150, 	60, 50, 5);//__
-		contexto.fillRect(198, 10, 5, 55);//|
-		contexto.fillRect(200, 10, 50, 5);//--
-		contexto.fillRect(248, 10, 50, 5);//--
-		contexto.fillRect(298, 10, 50, 5);//--
-		contexto.fillRect(348, 10, 50, 5);//--
-		contexto.fillRect(398, 10, 5, 55);//|
-		contexto.fillRect(400, 	60, 50, 5);//__
-		contexto.fillRect(448, 10, 5, 55);//|
-		contexto.fillRect(450, 10, 50, 5);//--
-		contexto.fillRect(498, 10, 5, 55);//|
-		contexto.fillRect(500, 	60, 50, 5);//__
-		contexto.fillRect(550, 	60, 50, 5);//__
-		contexto.fillRect(600, 	60, 50, 5);//__
-		contexto.fillRect(650, 	60, 50, 5);//__
-		contexto.fillRect(698, 10, 5, 55);//|
-		contexto.fillRect(700, 10, 50, 5);//--
-		contexto.fillRect(748, 10, 5, 55);//|
-		contexto.fillRect(750, 	60, 50, 5);//__
+		num=0;
+		inc=50;
+		for (var i = 0; i < limite2 ; i++) {
+			var ant=i-1;
+			if (binario[i]==0) {
+				contexto.fillRect(num, 	60, 50, 5);//__
+				if (parseInt(binario[ant])!=parseInt(binario[i])) {
+					contexto.fillRect(num-2, 10, 5, 55);//|
+				}
+			}else if (binario[i]==1){
+				contexto.fillRect(num, 10, 50, 5);//--
+				if (parseInt(binario[ant])!=parseInt(binario[i])) {
+					contexto.fillRect(num-2, 10, 5, 55);//|
+				}
+			}
+			num=num+inc;
+		}
+
+		//contexto.fillRect(0, 	60, 50, 5);//__
+			//contexto.fillRect(50, 	60, 50, 5);//__
+		//contexto.fillRect(98, 10, 5, 55);//|
+		//contexto.fillRect(98, 10, 50, 5);//--
+		//contexto.fillRect(148, 10, 5, 55);//|
+		//contexto.fillRect(150, 	60, 50, 5);//__
+		//contexto.fillRect(198, 10, 5, 55);//|
+		//contexto.fillRect(200, 10, 50, 5);//--
+		//contexto.fillRect(248, 10, 50, 5);//--
+		//contexto.fillRect(298, 10, 50, 5);//--
+		//contexto.fillRect(348, 10, 50, 5);//--
+		//contexto.fillRect(398, 10, 5, 55);//|
+		//contexto.fillRect(400, 	60, 50, 5);//__
+		//contexto.fillRect(448, 10, 5, 55);//|
+		//contexto.fillRect(450, 10, 50, 5);//--
+		//contexto.fillRect(498, 10, 5, 55);//|
+		//contexto.fillRect(500, 	60, 50, 5);//__
+		//contexto.fillRect(550, 	60, 50, 5);//__
+		//contexto.fillRect(600, 	60, 50, 5);//__
+		//contexto.fillRect(650, 	60, 50, 5);//__
+		//contexto.fillRect(698, 10, 5, 55);//|
+		//contexto.fillRect(700, 10, 50, 5);//--
+		//contexto.fillRect(748, 10, 5, 55);//|
+		//contexto.fillRect(750, 	60, 50, 5);//__
 
 	}
 
