@@ -39,15 +39,15 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <a class="navbar-brand" href="#">Codificación | NRZ</a>
+		      <a class="navbar-brand" href="#">Codificación | Manchester</a>
 		    </div>
 
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav">
 		        <li><a href="index.html">Inicio</a></li>
-		        <li class="active"><a href="NRZ.html">NRZ <span class="sr-only">(current)</span></a></li>
-		        <li><a href="manchester.html">Manchester</a></li>
+		        <li><a href="NRZ.html">NRZ</a></li>
+		        <li class="active"><a href="#">Manchester <span class="sr-only">(current)</span></a></li>
 		        <li><a href="nrzi.html">NRZI</a></li>
 		        <li><a href="4b5b.html">4b/5b</a></li>
 		      </ul>
@@ -58,7 +58,7 @@
 	  <!-- Jumbotron -->
 	  <div class="jumbotron background">
 	    <p class="lead" style="font-size:30px;">
-	    	NRZ
+	    	Manchester
 	    </p>
 	  </div>
 
@@ -76,7 +76,7 @@
 	    </div>
 	    <div class="col-lg-12">
 	    	<canvas id="micanvas" width="1000" height="100">
-					Este texto se muestra para los navegadores no compatibles con canvas.
+					Este navegador no soporta CANVAS...
 					<br>
 					Por favor, utiliza Firefox, Chrome, Safari u Opera.
 				</canvas>
@@ -125,52 +125,40 @@
 		num=0;
 		inc=50;
 		for (var i = 0; i < limite; i++) {
-			contexto.fillRect(num, 0, 1, 80);//|||
+			contexto.fillRect(num, 0, 1, 80);//|||   barras de separacion
 			num=num+inc;
 		}
 
 		num=0;
+		num2=25;
+		num3=50;
+		barra=25;
+		barra2=50;
 		inc=50;
+		inc_barra=50;
 		for (var i = 0; i < limite2 ; i++) {
-			var ant=i-1;
+			var prox=i+1;
 			if (binario[i]==0) {
-				contexto.fillRect(num, 	60, 50, 5);//__
-				if (parseInt(binario[ant])!=parseInt(binario[i])) {
-					contexto.fillRect(num-2, 10, 5, 55);//|
+				contexto.fillRect(num, 	10, 25, 5);//__
+				contexto.fillRect(barra, 10, 5, 55);//|
+				contexto.fillRect(num2, 	60, 25, 5);//__
+				if (parseInt(binario[prox])==parseInt(binario[i])) {
+					contexto.fillRect(barra2, 10, 5, 55);//|
 				}
 			}else if (binario[i]==1){
-				contexto.fillRect(num, 10, 50, 5);//--
-				if (parseInt(binario[ant])!=parseInt(binario[i])) {
-					contexto.fillRect(num-2, 10, 5, 55);//|
+				//contexto.fillRect(num, 10, 50, 5);//--
+				contexto.fillRect(num, 	60, 25, 5);//__
+				contexto.fillRect(barra, 10, 5, 55);//|
+				contexto.fillRect(num2, 	10, 25, 5);//__
+				if (parseInt(binario[prox])==parseInt(binario[i])) {
+					contexto.fillRect(barra2, 10, 5, 55);//|
 				}
 			}
 			num=num+inc;
+			num2=num2+inc;
+			barra=barra+inc;
+			barra2=barra2+inc;
 		}
-
-		//contexto.fillRect(0, 	60, 50, 5);//__
-			//contexto.fillRect(50, 	60, 50, 5);//__
-		//contexto.fillRect(98, 10, 5, 55);//|
-		//contexto.fillRect(98, 10, 50, 5);//--
-		//contexto.fillRect(148, 10, 5, 55);//|
-		//contexto.fillRect(150, 	60, 50, 5);//__
-		//contexto.fillRect(198, 10, 5, 55);//|
-		//contexto.fillRect(200, 10, 50, 5);//--
-		//contexto.fillRect(248, 10, 50, 5);//--
-		//contexto.fillRect(298, 10, 50, 5);//--
-		//contexto.fillRect(348, 10, 50, 5);//--
-		//contexto.fillRect(398, 10, 5, 55);//|
-		//contexto.fillRect(400, 	60, 50, 5);//__
-		//contexto.fillRect(448, 10, 5, 55);//|
-		//contexto.fillRect(450, 10, 50, 5);//--
-		//contexto.fillRect(498, 10, 5, 55);//|
-		//contexto.fillRect(500, 	60, 50, 5);//__
-		//contexto.fillRect(550, 	60, 50, 5);//__
-		//contexto.fillRect(600, 	60, 50, 5);//__
-		//contexto.fillRect(650, 	60, 50, 5);//__
-		//contexto.fillRect(698, 10, 5, 55);//|
-		//contexto.fillRect(700, 10, 50, 5);//--
-		//contexto.fillRect(748, 10, 5, 55);//|
-		//contexto.fillRect(750, 	60, 50, 5);//__
 
 	}
 
