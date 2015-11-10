@@ -39,16 +39,16 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <a class="navbar-brand" href="#">Codificación | NRZ</a>
+		      <a class="navbar-brand" href="#">Codificación | NRZI</a>
 		    </div>
 
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav">
 		        <li><a href="index.html">Inicio</a></li>
-		        <li class="active"><a href="NRZ.html">NRZ <span class="sr-only">(current)</span></a></li>
+		        <li><a href="NRZ.html">NRZ <span class="sr-only">(current)</span></a></li>
 		        <li><a href="manchester.html">Manchester</a></li>
-		        <li><a href="nrzi.html">NRZI</a></li>
+		        <li class="active"><a href="nrzi.html">NRZI</a></li>
 		        <li><a href="4b5b.html">4b/5b</a></li>
 		      </ul>
 		    </div><!-- /.navbar-collapse -->
@@ -74,13 +74,7 @@
 	      	<p><a class="btn btn-primary" href="#" role="button" onclick="canvas();">Ejecutar &raquo;</a></p>
 	    	</form>
 	    </div>
-	    <div class="col-lg-2">
-	    	<button type="button" class="btn btn-primary" onclick="set_canvas(1)">1</button>
-	    	<br>
-	    	<br>
-	    	<button type="button" class="btn btn-primary" onclick="set_canvas(0)">0</button>
-	    </div>
-	    <div class="col-lg-10">
+	    <div class="col-lg-12">
 	    	<canvas id="micanvas" width="1000" height="100">
 					Este texto se muestra para los navegadores no compatibles con canvas.
 					<br>
@@ -115,12 +109,6 @@
     return patron.test(te);
 	}
 
-	function set_canvas(num){
-		numero=document.getElementById('patron').value;
-		document.getElementById('patron').value=numero+num;
-		canvas();
-	}
-
 	function canvas(){
 		draw=document.getElementById('patron').value;
 		limite2=document.getElementById('patron').value.length;
@@ -144,47 +132,19 @@
 		num=0;
 		inc=50;
 		for (var i = 0; i < limite2 ; i++) {
-			var ant=i-1;
+			var prox=i+1;
 			if (binario[i]==0) {
 				contexto.fillRect(num, 	60, 50, 5);//__
-				if (parseInt(binario[ant])!=parseInt(binario[i])) {
-					contexto.fillRect(num-2, 10, 5, 55);//|
-				}
-			}else if (binario[i]==1){
-				contexto.fillRect(num, 10, 50, 5);//--
-				if (parseInt(binario[ant])!=parseInt(binario[i])) {
-					contexto.fillRect(num-2, 10, 5, 55);//|
-				}
+			}
+			if (binario[i]==1) {
+				contexto.fillRect(num, 10, 50, 5);//--				
+			}
+			if (binario[prox]!=binario[i]) {
+				contexto.fillRect(num-2, 10, 5, 55);//|
 			}
 			num=num+inc;
-		}
-
-		//contexto.fillRect(0, 	60, 50, 5);//__
-			//contexto.fillRect(50, 	60, 50, 5);//__
-		//contexto.fillRect(98, 10, 5, 55);//|
-		//contexto.fillRect(98, 10, 50, 5);//--
-		//contexto.fillRect(148, 10, 5, 55);//|
-		//contexto.fillRect(150, 	60, 50, 5);//__
-		//contexto.fillRect(198, 10, 5, 55);//|
-		//contexto.fillRect(200, 10, 50, 5);//--
-		//contexto.fillRect(248, 10, 50, 5);//--
-		//contexto.fillRect(298, 10, 50, 5);//--
-		//contexto.fillRect(348, 10, 50, 5);//--
-		//contexto.fillRect(398, 10, 5, 55);//|
-		//contexto.fillRect(400, 	60, 50, 5);//__
-		//contexto.fillRect(448, 10, 5, 55);//|
-		//contexto.fillRect(450, 10, 50, 5);//--
-		//contexto.fillRect(498, 10, 5, 55);//|
-		//contexto.fillRect(500, 	60, 50, 5);//__
-		//contexto.fillRect(550, 	60, 50, 5);//__
-		//contexto.fillRect(600, 	60, 50, 5);//__
-		//contexto.fillRect(650, 	60, 50, 5);//__
-		//contexto.fillRect(698, 10, 5, 55);//|
-		//contexto.fillRect(700, 10, 50, 5);//--
-		//contexto.fillRect(748, 10, 5, 55);//|
-		//contexto.fillRect(750, 	60, 50, 5);//__
-
-	}
+			}
+		}	
 
 </script>
 
