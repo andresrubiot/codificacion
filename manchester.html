@@ -74,7 +74,13 @@
 	      	<p><a class="btn btn-primary" href="#" role="button" onclick="canvas();">Ejecutar &raquo;</a></p>
 	    	</form>
 	    </div>
-	    <div class="col-lg-12">
+	    <div class="col-lg-2">
+	    	<button type="button" class="btn btn-primary" onclick="set_canvas(1)">1</button>
+	    	<br>
+	    	<br>
+	    	<button type="button" class="btn btn-primary" onclick="set_canvas(0)">0</button>
+	    </div>
+	    <div class="col-lg-10">
 	    	<canvas id="micanvas" width="1000" height="100">
 					Este navegador no soporta CANVAS...
 					<br>
@@ -107,6 +113,12 @@
     patron = /[01]/;
     te = String.fromCharCode(tecla);
     return patron.test(te);
+	}
+
+	function set_canvas(num){
+		numero=document.getElementById('patron').value;
+		document.getElementById('patron').value=numero+num;
+		canvas();
 	}
 
 	function canvas(){
