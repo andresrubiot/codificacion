@@ -133,14 +133,13 @@
 		inc=50;
 		for (var i = 0; i < limite2 ; i++) {
 			var prox=i+1;
+			var ant=i-1;
 			if (binario[i]==0) {
 				contexto.fillRect(num, 	60, 50, 5);//__
 			}
 			if (binario[i]==1) {
-				contexto.fillRect(num, 10, 50, 5);//--				
-			}
-			if (binario[prox]!=binario[i]) {
-				contexto.fillRect(num-2, 10, 5, 55);//|
+				contexto.fillRect(num, 10, 50, 5);//--
+				
 			}
 			num=num+inc;
 			}

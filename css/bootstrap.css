@@ -6798,3 +6798,9 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+
+.descripcion
+{
+  text-align: justify;
+}
