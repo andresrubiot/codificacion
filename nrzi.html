@@ -74,7 +74,13 @@
 	      	<p><a class="btn btn-primary" href="#" role="button" onclick="canvas();">Ejecutar &raquo;</a></p>
 	    	</form>
 	    </div>
-	    <div class="col-lg-12">
+	    <div class="col-lg-2">
+	    	<button type="button" class="btn btn-primary" onclick="set_canvas(1)">1</button>
+	    	<br>
+	    	<br>
+	    	<button type="button" class="btn btn-primary" onclick="set_canvas(0)">0</button>
+	    </div>
+	    <div class="col-lg-10">
 	    	<canvas id="micanvas" width="1000" height="100">
 					Este texto se muestra para los navegadores no compatibles con canvas.
 					<br>
@@ -109,6 +115,12 @@
     return patron.test(te);
 	}
 
+	function set_canvas(num){
+		numero=document.getElementById('patron').value;
+		document.getElementById('patron').value=numero+num;
+		canvas();
+	}
+
 	function canvas(){
 		draw=document.getElementById('patron').value;
 		limite2=document.getElementById('patron').value.length;
@@ -132,14 +144,27 @@
 		num=0;
 		inc=50;
 		for (var i = 0; i < limite2 ; i++) {
-			var prox=i+1;
+			var flag=0;
 			var ant=i-1;
+			
+			if (binario[ant]==1 && binario[i]==0) {
+				binario[i]=1;
+				flag=1;
+			}
+
+			if (binario[ant]==1 && binario[i]==1 && flag!=1) {
+				binario[i]=0;
+				contexto.fillRect(num-2, 10, 5, 55);//|
+			}
+			if (binario[ant]==0 && binario[i]==1) {
+				contexto.fillRect(num-2, 10, 5, 55);//|
+			}
+
 			if (binario[i]==0) {
 				contexto.fillRect(num, 	60, 50, 5);//__
 			}
 			if (binario[i]==1) {
-				contexto.fillRect(num, 10, 50, 5);//--
-				
+				contexto.fillRect(num, 10, 50, 5);//--			
 			}
 			num=num+inc;
 			}
