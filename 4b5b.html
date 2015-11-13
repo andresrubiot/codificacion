@@ -116,6 +116,12 @@
 	function convertir(){
 		numero=document.getElementById("patron").value;
 		cant=document.getElementById("patron").value.length;
+		modulo=cant % 4;
+		if (modulo!=0) {
+			numero=numero+"0";
+			document.getElementById("patron").value=numero;
+			convertir();
+		}
 		cant4=numero.split("");
 		var num4='';
 		var numConver='';
