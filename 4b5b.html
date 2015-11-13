@@ -71,16 +71,14 @@
 					  <span class="input-group-addon" id="basic-addon1">(0 / 1)</span>
 					  <input type="text" id="patron" class="form-control" placeholder="Ingrese el dato Binario" aria-describedby="basic-addon1" onkeypress="return validarn(event)">
 					</div><br>
-	      	<p><a class="btn btn-primary" href="#" role="button" onclick="canvas();">Ejecutar &raquo;</a></p>
+					<div class="input-group">
+					  <span class="input-group-addon" id="basic-addon1">(5 bits)</span>
+					  <input type="text" id="convertido" class="form-control" placeholder="Valor Convertido" aria-describedby="basic-addon1" readonly="true">
+					</div><br>
+	      	<p><a class="btn btn-primary" href="#" role="button" onclick="convertir();"> Ejecutar &raquo;</a></p>
 	    	</form>
 	    </div>
-	    <div class="col-lg-2">
-	    	<button type="button" class="btn btn-primary" onclick="set_canvas(1)">1</button>
-	    	<br>
-	    	<br>
-	    	<button type="button" class="btn btn-primary" onclick="set_canvas(0)">0</button>
-	    </div>
-	    <div class="col-lg-10">
+	    <div class="col-lg-12">
 	    	<canvas id="micanvas" width="1000" height="100">
 					Este texto se muestra para los navegadores no compatibles con canvas.
 					<br>
@@ -115,15 +113,84 @@
     return patron.test(te);
 	}
 
+	function convertir(){
+		numero=document.getElementById("patron").value;
+		cant=document.getElementById("patron").value.length;
+		cant4=numero.split("");
+		var num4='';
+		var numConver='';
+		var nuevoNum='';
+		for (var i = 0; i < cant; i++) {
+			num4=num4+cant4[i];
+			if (num4.length==4) {
+				switch(num4){
+					case '0000':
+						nuevoNum="11110";
+						break;
+					case '0001':
+						nuevoNum="01001";
+						break;
+					case '0010':
+						nuevoNum="10100";
+						break;
+					case '0011':
+						nuevoNum="10101";
+						break;
+					case '0100':
+						nuevoNum="01010";
+						break;
+					case '0101':
+						nuevoNum="01011";
+						break;
+					case '0110':
+						nuevoNum="01110";
+						break;
+					case '0111':
+						nuevoNum="01111";
+						break;
+					case '1000':
+						nuevoNum="10010";
+						break;
+					case '1001':
+						nuevoNum="10011";
+						break;
+					case '1010':
+						nuevoNum="10110";
+						break;
+					case '1011':
+						nuevoNum="10111";
+						break;
+					case '1100':
+						nuevoNum="11010";
+						break;
+					case '1101':
+						nuevoNum="11011";
+						break;
+					case '1110':
+						nuevoNum="11100";
+						break;
+					case '1111':
+						nuevoNum="11101";
+						break;
+				}
+				numConver=numConver+nuevoNum;
+				document.getElementById('convertido').value=numConver;
+				alert(num4);
+				num4='';
+			}
+		}
+		canvas();
+	}
+
 	function set_canvas(num){
-		numero=document.getElementById('patron').value;
-		document.getElementById('patron').value=numero+num;
+		numero=document.getElementById('convertido').value;
+		document.getElementById('convertido').value=numero+num;
 		canvas();
 	}
 
 	function canvas(){
-		draw=document.getElementById('patron').value;
-		limite2=document.getElementById('patron').value.length;
+		draw=document.getElementById('convertido').value;
+		limite2=document.getElementById('convertido').value.length;
 		limite=limite2+1;
 		var binario = draw.split("");
 		//dibujo en canvas
